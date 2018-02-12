@@ -36,7 +36,7 @@ RUN curl -Lo /tmp/s6-overlay-amd64.tar.gz https://github.com/just-containers/s6-
 RUN \
     curl -Lo /etc/yum.repos.d/ambari.repo "http://public-repo-1.hortonworks.com/ambari/centos7/2.x/updates/${APP_VERSION}/ambari.repo"
 RUN yum install -y ambari-agent java-1.8.0-openjdk-devel
-RUN sed -i 's/hostname=.*/hostname=ambari-server.local.local/g' /etc/ambari-agent/conf/ambari-agent.ini
+RUN sed -i 's/hostname=.*/hostname=ambari-server/g' /etc/ambari-agent/conf/ambari-agent.ini
 
 ADD root /
 
