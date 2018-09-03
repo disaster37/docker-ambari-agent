@@ -37,6 +37,7 @@ RUN \
     curl -Lo /etc/yum.repos.d/ambari.repo "http://public-repo-1.hortonworks.com/ambari/centos7/2.x/updates/${APP_VERSION}/ambari.repo"
 RUN yum install -y ambari-agent java-1.8.0-openjdk-devel
 RUN sed -i 's/hostname=.*/hostname=ambari-server/g' /etc/ambari-agent/conf/ambari-agent.ini
+RUN sed -i 's/\[security\]/[security]\nforce_https_protocol=PROTOCOL_TLSv1_2/g' /etc/ambari-agent/conf/ambari-agent.ini
 
 ADD root /
 
